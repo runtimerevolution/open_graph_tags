@@ -1,5 +1,4 @@
-require "open_graph_tags/version"
-require 
+require "open_graph_tags/version" 
 
 module OpenGraphTags
 
