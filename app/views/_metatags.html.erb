@@ -1,0 +1,17 @@
+<% # Open Graph %>
+<% prefix = main_app.root_url[0..-2] %>
+
+<meta content="<%= site_name %>" property="og:site_name">
+<meta content="<%= title %>" property="og:title">
+<meta content="<%= prefix + url %>" property="og:url">
+<meta content="<%= description %>" property="og:description">
+<meta content="<%= prefix + image_path(image) unless image.blank? %>" property="og:image">
+
+<% # Twitter %>
+<meta content="<%= prefix + url %>" name="twitter:url">
+<meta content="<%= title %>" name="twitter:title" >
+<meta content="<%= description %>" name="twitter:description">
+
+<% #-- Google meta tags for better search display %>
+<meta content='Runtime Revolution on Google+' itemprop='name'>
+<meta content="<%= description %>" itemprop='description'>
