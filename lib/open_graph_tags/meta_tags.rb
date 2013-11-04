@@ -9,14 +9,17 @@ module OpenGraphTags
 
   	# before_filter to fetch meta tags from a cms file
   	def set_meta_tags
-  		unless @cms_page
-      	if Cms::Page.where(:full_path => "/#{request.url.split("/")[3..-1].join("/")}").any?
-        	@cms_page = Cms::Page.where(:full_path => "/#{request.url.split("/")[3..-1].join("/")}").first
-      	else 
-      		@cms_page = Cms::Page.root
-      	end    	
+  		if @cms_page
+        @meta_tags = @cms_page.meta_information if @cms_page.respond_to?(:meta_information)
+      elsif Cms::Page.where(:full_path => "/#{request.url.split("/")[3..-1].join("/")}").any?
+      	@cms_page = Cms::Page.where(:full_path => "/#{request.url.split("/")[3..-1].join("/")}").first
+        @meta_tags = @cms_page.meta_information if @cms_page.respond_to?(:meta_information)
+    	else 
+    		@cms_page = Cms::Page.root
+        @meta_tags = @cms_page.meta_information if @cms_page.respond_to?(:meta_information)
+        @meta_tags[:url] = request.env['PATH_INFO']
       end
-      @meta_tags = @cms_page.meta_information if @cms_page.respond_to?(:meta_information)
+      
     end
 
     # method that allows to override predefined meta tags
