@@ -1,5 +1,6 @@
 require "open_graph_tags/version" 
 require "open_graph_tags/meta_info"
+require "open_graph_tags/open_graph_meta_tags"
 
 module OpenGraphTags
 
