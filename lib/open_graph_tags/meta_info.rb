@@ -13,13 +13,13 @@ module MetaInfo
     # otherwise fill in fields with blank strings
     def meta_information
       site_name = self.site.label
+      url = self.full_path
 
       # checks the instance meta tag information
       title = self.get_meta_tag_title
       description = self.get_meta_tag_description
       image = self.get_meta_tag_image_name
-      
-      url = "/#{self.site.identifier}" + self.full_path
+
       {
         :site_name => site_name,
         :title => (title or ""),
