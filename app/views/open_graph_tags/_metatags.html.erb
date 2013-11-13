@@ -1,6 +1,6 @@
 <% # Open Graph %>
 <% 	prefix = main_app.root_url[0..-2]
-		url = prefix + url
+		url = prefix + url unless url.nil?
 		image = prefix + image_path(image) unless image.blank? %>
 
 <%= facebook_meta_tag :site_name, site_name %>
