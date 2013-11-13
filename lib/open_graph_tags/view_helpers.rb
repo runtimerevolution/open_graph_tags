@@ -5,7 +5,7 @@ module OpenGraphTags
 		# partial rendering helper
 
 	  def open_graph_meta_tags
-	    render :partial => "open_graph_tags/metatags", :locals => @meta_tags
+	    render :partial => "open_graph_tags/metatags", :locals => { :metatags => @meta_tags }
 	  end
 
 	  # tags helpers

@@ -1,19 +1,19 @@
 <% # Open Graph %>
 <% 	prefix = main_app.root_url[0..-2]
-		url = prefix + url unless url.nil?
-		image = prefix + image_path(image) unless image.blank? %>
+		metatags[:url] = prefix + metatags[:url] unless metatags[:url].nil?
+		metatags[:image] = prefix + image_path(metatags[:image]) unless metatags[:image].blank? %>
 
-<%= facebook_meta_tag :site_name, site_name %>
-<%= facebook_meta_tag :title, title %>
-<%= facebook_meta_tag :url, url %>
-<%= facebook_meta_tag :description, description %>
-<%= facebook_meta_tag :image, image %>
+<%= facebook_meta_tag :site_name, metatags[:site_name] %>
+<%= facebook_meta_tag :title, metatags[:title] %>
+<%= facebook_meta_tag :url, metatags[:url] %>
+<%= facebook_meta_tag :description, metatags[:description] %>
+<%= facebook_meta_tag :image, metatags[:image] %>
 
 <% # Twitter %>
-<%= twitter_meta_tag :url, url %>
-<%= twitter_meta_tag :title, title %>
-<%= twitter_meta_tag :description, description %>
+<%= twitter_meta_tag :url, metatags[:url] %>
+<%= twitter_meta_tag :title, metatags[:title] %>
+<%= twitter_meta_tag :description, metatags[:description] %>
 
 <% #-- Google meta tags for better search display %>
-<%= google_meta_tag :name, site_name %>
-<%= google_meta_tag :description, description %>
+<%= google_meta_tag :name, metatags[:site_name] %>
+<%= google_meta_tag :description, metatags[:description] %>
