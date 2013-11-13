@@ -18,7 +18,7 @@ module OpenGraphTags
       else 
   		  @cms_page = Cms::Page.root
         @meta_tags = @cms_page.meta_information if @cms_page.respond_to?(:meta_information)
-        @meta_tags[:url] = request_uri
+        @meta_tags[:url] = request_uri if @meta_tags
       end
     end
 

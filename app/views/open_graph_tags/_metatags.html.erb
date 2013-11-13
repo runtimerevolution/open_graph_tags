@@ -1,17 +1,19 @@
 <% # Open Graph %>
-<% prefix = main_app.root_url[0..-2] %>
+<% 	prefix = main_app.root_url[0..-2]
+		url = prefix + url
+		image = prefix + image_path(image) unless image.blank? %>
 
-<meta content="<%= site_name %>" property="og:site_name">
-<meta content="<%= title %>" property="og:title">
-<meta content="<%= prefix + url %>" property="og:url">
-<meta content="<%= description %>" property="og:description">
-<meta content="<%= prefix + image_path(image) unless image.blank? %>" property="og:image">
+<%= facebook_meta_tag :site_name, site_name %>
+<%= facebook_meta_tag :title, title %>
+<%= facebook_meta_tag :url, url %>
+<%= facebook_meta_tag :description, description %>
+<%= facebook_meta_tag :image, image %>
 
 <% # Twitter %>
-<meta content="<%= prefix + url %>" name="twitter:url">
-<meta content="<%= title %>" name="twitter:title" >
-<meta content="<%= description %>" name="twitter:description">
+<%= twitter_meta_tag :url, url %>
+<%= twitter_meta_tag :title, title %>
+<%= twitter_meta_tag :description, description %>
 
 <% #-- Google meta tags for better search display %>
-<meta content='<%= site_name %>' itemprop='name'>
-<meta content="<%= description %>" itemprop='description'>
+<%= google_meta_tag :name, site_name %>
+<%= google_meta_tag :description, description %>
