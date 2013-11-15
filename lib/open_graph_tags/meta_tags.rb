@@ -10,6 +10,7 @@ module OpenGraphTags
   	# before_filter to fetch meta tags from a cms file
   	def set_meta_tags
       request_uri = request.env['PATH_INFO']
+      @meta_tags = Hash.new
 
   		if @cms_page
         @meta_tags = @cms_page.meta_information if @cms_page.respond_to?(:meta_information)
