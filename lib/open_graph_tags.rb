@@ -1,13 +1,19 @@
-require "open_graph_tags/version" 
-require "open_graph_tags/engine"
-require "open_graph_tags/meta_tags"
 
 module OpenGraphTags
 
+  require 'open_graph_tags/version'
+
+  require 'open_graph_tags/engine' if defined?(Rails)
+
+
+  DEFAULT_PROVIDERS = [:twitter, :facebook, :google].freeze
+
 	# Configuration defaults
   @config = {
-              :root_uri => "/"
-            }
+    :root_uri => "/",
+    :cms_page => defined?(::Cms::Page) ? ::Cms::Page : nil,
+    :providers => DEFAULT_PROVIDERS
+  }
 
   @valid_config_keys = @config.keys
 

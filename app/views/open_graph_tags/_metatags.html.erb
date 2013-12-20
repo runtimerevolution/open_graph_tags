@@ -17,3 +17,9 @@
 <% #-- Google meta tags for better search display %>
 <%= google_meta_tag :name, metatags[:site_name] %>
 <%= google_meta_tag :description, metatags[:description] %>
+
+<% different_providers.each do |provider| %>
+  <%= send("#{provider}_meta_tag", :url, metatags[:url]) %>
+  <%= send("#{provider}_meta_tag", :title, metatags[:title]) %>
+  <%= send("#{provider}_meta_tag", :description, metatags[:description]) %>
+<% end -%>
