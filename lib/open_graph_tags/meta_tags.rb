@@ -10,7 +10,7 @@ module OpenGraphTags
     # before_filter to set predefined meta tags
     def set_meta_tags
       @meta_tags ||= Hash.new
-      @meta_tags[:url] = request_uri
+      @meta_tags[:url] = request.fullpath
     end
 
     # method that allows to override predefined meta tags
