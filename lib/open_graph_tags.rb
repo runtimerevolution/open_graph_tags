@@ -11,7 +11,6 @@ module OpenGraphTags
 	# Configuration defaults
   @config = {
     :root_uri => "/",
-    :cms_page => defined?(::Cms::Page) ? ::Cms::Page : nil,
     :providers => DEFAULT_PROVIDERS
   }
 

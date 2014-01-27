@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.name          = "open_graph_tags"
   spec.version       = OpenGraphTags::VERSION
   spec.authors       = ["Runtime Revolution"]
-  spec.description   = %q{OpenGraphTags allows you to easily include open graph meta tags in your views from meta information defined in Comfy pages}
-  spec.summary       = %q{A simple gem to include meta information defined in Comfy pages as open graph meta tags in your views}
+  spec.description   = %q{OpenGraphTags allows you to easily include open graph meta tags in your views from information defined in the controllers}
+  spec.summary       = %q{A simple gem to easily include meta information in your views}
   spec.homepage      = ""
   spec.license       = "MIT"
 

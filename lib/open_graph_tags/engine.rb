@@ -1,7 +1,6 @@
 require 'rails'
 
 require 'open_graph_tags/meta_tags'
-require 'open_graph_tags/meta_info'
 
 require 'open_graph_tags/view_helpers'
 
@@ -11,9 +10,6 @@ module OpenGraphTags
     initializer "open_graph_tags.view_helpers" do
       ActionView::Base.send(:include, ViewHelpers)
     end
-
-    initializer "meta_info" do
-      Cms::Page.send(:include, MetaInfo) if defined?(ComfortableMexicanSofa)
-    end
+    
   end
 end
