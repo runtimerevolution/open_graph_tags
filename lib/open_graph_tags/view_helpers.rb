@@ -2,6 +2,7 @@ module OpenGraphTags
 	module ViewHelpers
 
 		include OpenGraphTags::MetaTags
+		include 'uri'
 
 		# partial rendering helper
 		def open_graph_meta_tags
@@ -30,6 +31,12 @@ module OpenGraphTags
 
 		def different_providers
 			return (OpenGraphTags.config[:providers] - OpenGraphTags::DEFAULT_PROVIDERS)
+		end
+
+		def get_absolute_url(url, host)
+			uri = URI(url)
+			uri.host = host unless uri.absolute? || host.blank?
+			uri.to_s
 		end
 
 	end
