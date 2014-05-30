@@ -1,8 +1,9 @@
+require 'uri'
+
 module OpenGraphTags
 	module ViewHelpers
 
 		include OpenGraphTags::MetaTags
-		include 'uri'
 
 		# partial rendering helper
 		def open_graph_meta_tags
