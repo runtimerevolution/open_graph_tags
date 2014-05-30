@@ -1,7 +1,7 @@
 <% # Open Graph %>
 <% 	prefix = main_app.root_url[0..-2]
-		metatags[:url] = prefix + metatags[:url] unless metatags[:url].nil?
-		metatags[:image] = prefix + image_path(metatags[:image]) unless metatags[:image].blank? %>
+		metatags[:url] = get_absolute_url(metatags[:url], prefix) unless metatags[:url].nil?
+		metatags[:image] = get_absolute_url(image_path(metatags[:image]), prefix) unless metatags[:image].blank? %>
 
 <%= facebook_meta_tag :site_name, metatags[:site_name] %>
 <%= facebook_meta_tag :title, metatags[:title] %>
