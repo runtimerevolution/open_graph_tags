@@ -17,8 +17,9 @@
 <%= twitter_meta_tag :image, metatags[:image] %>
 
 <% #-- Google meta tags for better search display %>
-<%= google_meta_tag :name, metatags[:site_name] %>
+<%= google_meta_tag :name, metatags[:title] %>
 <%= google_meta_tag :description, metatags[:description] %>
+<%= google_meta_tag :image, metatags[:image] %>
 
 <% different_providers.each do |provider| %>
   <%= send("#{provider}_meta_tag", :url, metatags[:url]) %>
