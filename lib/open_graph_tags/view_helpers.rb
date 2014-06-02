@@ -36,7 +36,11 @@ module OpenGraphTags
 
 		def get_absolute_url(url, host)
 			uri = URI(url)
-			uri.host = host unless uri.absolute? || host.blank?
+			unless uri.absolute? || host.blank?
+				uri_host = URI(host)
+				uri.scheme = uri_host.scheme if uri_host.scheme
+				uri.host = uri_host.host
+			end
 			uri.to_s
 		end
 
