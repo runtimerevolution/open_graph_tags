@@ -1,8 +1,8 @@
-<% # Open Graph %>
 <% 	prefix = main_app.root_url[0..-2]
 		metatags[:url] = get_absolute_url(metatags[:url], prefix) unless metatags[:url].nil?
 		metatags[:image] = get_absolute_url(image_path(metatags[:image]), prefix) unless metatags[:image].blank? %>
 
+<% # Open Graph %>
 <%= facebook_meta_tag :site_name, metatags[:site_name] %>
 <%= facebook_meta_tag :title, metatags[:title] %>
 <%= facebook_meta_tag :url, metatags[:url] %>
@@ -10,9 +10,11 @@
 <%= facebook_meta_tag :image, metatags[:image] %>
 
 <% # Twitter %>
+<%= twitter_meta_tag :card, 'summary' %>
 <%= twitter_meta_tag :url, metatags[:url] %>
 <%= twitter_meta_tag :title, metatags[:title] %>
 <%= twitter_meta_tag :description, metatags[:description] %>
+<%= twitter_meta_tag :image, metatags[:image] %>
 
 <% #-- Google meta tags for better search display %>
 <%= google_meta_tag :name, metatags[:site_name] %>
